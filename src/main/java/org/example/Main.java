@@ -3,13 +3,11 @@ package org.example;
 import org.example.controller.StudentController;
 import org.example.dto.request.AddStudentRequest;
 import org.example.dto.response.GetStudentResponse;
-import org.example.entity.Student;
 import org.example.util.RequestBuilderUtil;
 
 import org.example.controller.TeacherController;
 import org.example.dto.request.AddTeacherRequest;
 import org.example.dto.response.GetTeacherResponse;
-import org.example.entity.Teacher;
 
 
 import java.util.List;

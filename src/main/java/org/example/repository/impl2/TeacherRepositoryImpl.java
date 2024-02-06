@@ -12,16 +12,21 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class TeacherRepositoryImpl implements TeacherRepository {
+public abstract class TeacherRepositoryImpl implements TeacherRepository {
 
-    private static final TeacherRepositoryImpl INSTANCE = new TeacherRepositoryImpl();
+    private static final TeacherRepositoryImpl INSTANCE = new TeacherRepositoryImpl() {
+        @Override
+        public void AddTeacher(Teacher teacher) {
+
+        }
+    };
 
     private final TeacherRepository teacherRepository = TeacherRepositoryImpl.getInstance();
 
     private final TeacherMapper teacherMapper = TeacherMapper.getInstance();
     private static final Map<Long, Teacher> teachers = new HashMap<>();
 
-    private TeacherRepositoryImpl() {}
+    protected TeacherRepositoryImpl() {}
 
     public static TeacherRepositoryImpl getInstance() {
         return INSTANCE;
@@ -31,6 +36,8 @@ public class TeacherRepositoryImpl implements TeacherRepository {
         teachers.put(teacher.getId(), teacher);
 
     }
+
+    public abstract void AddTeacher(Teacher teacher);
 
     @Override
     public List<Teacher> getAllTeachers() {

@@ -6,6 +6,7 @@ import org.example.dto.response.GetTeacherResponse;
 import org.example.entity.Teacher;
 import org.example.mapper.TeacherMapper;
 import org.example.repository.TeacherRepository;
+import org.example.repository.impl2.TeacherMySqlRepositoryImpl;
 import org.example.repository.impl2.TeacherRepositoryImpl;
 import org.example.service.TeacherService;
 import org.example.util.IdGeneratorUtil;
@@ -15,7 +16,8 @@ import java.util.List;
 public class TeacherServiceImpl implements TeacherService {
 
     private static final org.example.service.impl2.TeacherServiceImpl INSTANCE = new org.example.service.impl2.TeacherServiceImpl();
-    private final TeacherRepository teacherRepository = TeacherRepositoryImpl.getInstance();
+    private final TeacherRepository teacherRepository = TeacherMySqlRepositoryImpl.getInstance();
+   // private final TeacherRepository teacherRepository = TeacherRepositoryImpl.getInstance();
     private final TeacherMapper teacherMapper= TeacherMapper.getInstance();
 
     private TeacherServiceImpl() {}
